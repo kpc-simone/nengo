@@ -96,13 +96,13 @@ def test_linearfilter(Simulator, plt, seed):
 
 
 def test_step_errors():
-    output = np.zeros(3)
     with pytest.raises(ValueError):
-        LinearFilter.NoDen([1], [1], output)
+        LinearFilter.NoX([1, 2], [1, 1], X=np.zeros((1, 3)), Xi=np.zeros(1))
     with pytest.raises(ValueError):
-        LinearFilter.Simple([1, 2], [1], output)
+        LinearFilter.OneX(
+            [1, 2, 3], [1, 2, 3], X=np.zeros((1, 3)), Xi=np.zeros(1))
     with pytest.raises(ValueError):
-        LinearFilter.Simple([1], [1, 2], output)
+        LinearFilter.OneX([1, 2], [1, 2], X=np.zeros((0, 3)), Xi=np.zeros(0))
 
 
 def test_filt(plt, rng):

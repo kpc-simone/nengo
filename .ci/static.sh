@@ -31,7 +31,7 @@ elif [[ "$COMMAND" == "script" ]]; then
     exe flake8 --ignore=E703,W391 docs
     exe pylint docs nengo
     rm docs/examples/**/*.py
-    exe codespell -q 3 --skip="./build,./docs/_build,*-checkpoint.ipynb"
+    exe codespell -q 3 --skip="./build,./docs/_build,./nengo/_vendor,*-checkpoint.ipynb"
     exe shellcheck -e SC2087 .ci/*.sh
     # undo single-branch cloning
     git config --replace-all remote.origin.fetch +refs/heads/*:refs/remotes/origin/*

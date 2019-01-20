@@ -67,6 +67,9 @@ Release History
 - ``FrozenObjects`` can control parameter initialization order when copying,
   which fixed a bug encountered when copying convolutional connections.
   (`#1493 <https://github.com/nengo/nengo/pull/1493>`__)
+- Fixed the progress bar in recent Jupyter Lab versions.
+  (`#1499 <https://github.com/nengo/nengo/issues/1499>`_,
+  `#1500 <https://github.com/nengo/nengo/pull/1500>`_)
 
 2.8.0 (June 9, 2018)
 ====================

@@ -561,8 +561,8 @@ class VdomOrHtmlProgressBar(ProgressBar):
 
     def _get_update_bundle(self, progress):
         bundle = self._vdom._repr_mimebundle_([], [])
-        bundle['application/javascript'] = self._html._js_update(
-            progress)._repr_javascript_()
+        bundle['text/html'] = '<script>' + self._html._js_update(
+            progress)._repr_javascript_() + '</script>'
         return bundle
 
 

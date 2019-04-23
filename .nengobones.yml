@@ -1,5 +1,58 @@
+project_name: Nengo
 pkg_name: nengo
 repo_name: nengo/nengo
+
+license:
+  type: nengo
+  copyright_start: 2013
+  append:
+    - LICENSE.rst.suppliment
+
+contributing: {}
+contributors: {}
+
+manifest:
+  graft:
+    - nengo-data
+  recursive-include:
+    - nengo *.rst
+    - nengo *.txt
+
+setup_py:
+  description: Tools for building and simulating large-scale neural models
+  data_files:
+    nengo:
+      - nengo-data/nengorc
+  entry_points:
+    nengo.backends:
+      - reference = nengo:Simulator
+  python_require: ">=3.5"
+  install_requires:
+    - numpy>=1.11
+  docs_requires:
+    - sphinx>=1.8
+    - jupyter
+    - matplotlib>=1.4
+    - nbsphinx
+    - numpydoc>=0.6
+    - nengo_sphinx_theme>=0.8
+  optional_requires:
+    - scipy>=0.13
+    - scikit-learn
+  tests_requires:
+    - jupyter
+    - matplotlib>=1.4
+    - pytest>=3.6
+  classifiers:
+    - "Development Status :: 5 - Production/Stable"
+    - "Intended Audience :: Science/Research"
+    - "License :: Free for non-commercial use"
+    - "Operating System :: OS Independent"
+    - "Programming Language :: Python :: 3 :: Only"
+    - "Programming Language :: Python :: 3.5"
+    - "Programming Language :: Python :: 3.6"
+    - "Programming Language :: Python :: 3.7"
+    - "Topic :: Scientific/Engineering :: Artificial Intelligence"
 
 travis_yml:
   python: 3.6

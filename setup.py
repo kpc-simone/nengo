@@ -28,7 +28,9 @@ version_module = imp.load_source(
     "version", os.path.join(root, "nengo", "version.py"))
 testing = "test" in sys.argv or "pytest" in sys.argv
 
-install_requires = ["numpy>=1.11"]
+install_requires = [
+    "numpy>=1.11",
+]
 docs_require = [
     "sphinx>=1.8",
     "jupyter",
@@ -47,15 +49,18 @@ tests_require = [
     "pytest>=3.6",
 ]
 
-
 setup(
     name="nengo",
     version=version_module.version,
-    author="Applied Brain Research",
+    author="Applied Brain Research Inc.",
     author_email="info@appliedbrainresearch.com",
     packages=find_packages(),
     scripts=[],
-    data_files=[("nengo", ["nengo-data/nengorc"])],
+    data_files=[
+        ("nengo", [
+            "nengo-data/nengorc",
+        ]),
+    ],
     url="https://github.com/nengo/nengo",
     license="Free for non-commercial use",
     description="Tools for building and simulating large-scale neural models",
@@ -78,7 +83,8 @@ setup(
             "reference = nengo:Simulator",
         ],
     },
-    classifiers=[  # https://pypi.python.org/pypi?%3Aaction=list_classifiers
+    # https://pypi.python.org/pypi?%3Aaction=list_classifiers
+    classifiers=[
         "Development Status :: 5 - Production/Stable",
         "Intended Audience :: Science/Research",
         "License :: Free for non-commercial use",

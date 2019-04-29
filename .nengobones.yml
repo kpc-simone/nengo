@@ -2,9 +2,10 @@ project_name: Nengo
 pkg_name: nengo
 repo_name: nengo/nengo
 
+copyright_start: 2013
+
 license:
   type: nengo
-  copyright_start: 2013
   append:
     - LICENSE.rst.suppliment
 
@@ -53,6 +54,71 @@ setup_py:
     - "Programming Language :: Python :: 3.6"
     - "Programming Language :: Python :: 3.7"
     - "Topic :: Scientific/Engineering :: Artificial Intelligence"
+
+setup_cfg:
+  coverage_omit_lines:
+    - "nengo/_vendor/*"
+    - "nengo/spa/*"
+  flake8_ignore: E123,E133,E226,E241,E242,E501,E731,F401,W503
+  pytest_norecursedirs:
+    - nengo/_vendor
+  pytest_filterwarnings:
+    - "ignore:(Buffer|Memory|The nengo\\.spa):DeprecationWarning"
+    - "ignore:Skipping some optimization steps"
+    - "ignore:SciPy is not installed"
+    - "ignore:numpy.(dtype|ufunc) size changed"
+  pylint_ignore:
+    - compat.py
+  pylint_disable:
+    - all
+    - broad-except
+    - cyclic-import
+    - import-error
+    - reimported
+  pylint_enable:
+    - anomalous-backslash-in-string
+    - assert-on-tuple
+    - attribute-defined-outside-init
+    - bad-except-order
+    - bad-mcs-classmethod-argument
+    - bad-super-call
+    - bad-whitespace
+    - bare-except
+    - cell-var-from-loop
+    - confusing-with-statement
+    - consider-using-enumerate
+    - dangerous-default-value
+    - deprecated-method
+    - function-redefined
+    - line-too-long
+    - misplaced-comparison-constant
+    - no-value-for-parameter
+    - notimplemented-raised
+    - pointless-string-statement
+    - repeated-keyword
+    - signature-differs
+    - singleton-comparison
+    - super-init-not-called
+    - too-many-function-args
+    - undefined-variable
+    - unexpected-keyword-args
+    - ungrouped-imports
+    - unnecessary-lambda
+    - unreachable
+    - unused-import
+    - useless-else-on-loop
+    - useless-object-inheritance
+    - wrong-import-order
+  pylint_third_party:
+    - numpy
+    - matplotlib
+    - mpl_toolkits
+    - pytest
+
+
+docs_conf_py:
+  project_name: Nengo core
+  description: Large-scale neural simulation in Python
 
 travis_yml:
   python: 3.6
